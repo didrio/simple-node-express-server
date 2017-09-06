@@ -3,11 +3,49 @@
   <head>
     <meta charset="utf-8">
     <title>Simple Node + Express Server</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
   </head>
   <body>
-    <div class="container">
-      Simple Node + Express Server
+    <div id="create-room-modal">
+      <p id="create-label">Create New Room:</p><br />
+      <p id="name-label">Name:</p>
+      <p><input id="input-room-name" type="text"></p><br />
+      <p>Password (Optional):</p>
+      <p><input id="input-room-password"type="text"></p><br />
+      <p><button id="add-room-button">+ Add</button><span id="cancel">Cancel</span></p>
+    </div>
+    <div id="password-modal">
+      <p id="password-prompt">This room requires a password to join.</p><br />
+      <p>Enter password:</p><br />
+      <p><input id="input-verify-password" type="text"></p><br />
+      <p><button id="password-join-button">Join</button><span id="password-cancel">Cancel</span></p>
+    </div>
+    <div id="container">
+      <div id="left-pane">
+        <div id="user-name" class="tab"></div>
+        <div id="create-room-button" class="tab">
+          +&nbsp;&nbsp;&nbsp;Create New Room
+        </div>
+        <div id="room-tabs"></div>
+      </div>
+      <div id="right-pane">
+        <div id="chat-area">
+          <div id="get-started">
+            Join a room to get started!
+          </div>
+          <div id="messages">
+            <ul id="messages-ul"></ul>
+          </div>
+          <div id="chat-box">
+            <input type="text" id="input-chat">
+            <button id="submit-button">Submit</button>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="./script.js"></script>
   </body>
